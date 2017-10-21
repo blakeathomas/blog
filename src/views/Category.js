@@ -1,21 +1,41 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { fetchCategories, setSorting, setCommentSorting } from '../actions'
-import { Link } from 'react-router-dom'
-//import '../styles/app.css'
+import { graphql } from 'react-apollo'
+import { getCategories } from '../graphql/queries/categories'
+import Loader from '../components/Loader'
+import Layout from '../components/Layout'
+import CategoryView from '../components/CategoryView'
+// import { Link } from 'react-router-dom'
+// import '../styles/app.css'
 
 class Category extends Component {
-
+  constructor () {
+    super()
+    this.renderCategories = this.renderCategories.bind(this)
+  }
   render () {
-    return [
-      <p key='1'>Category</p>,
-      <p key='2'>This is the category page</p>
-    ]
+    const isLoading = this.props.data.loading
+    return (
+      <Layout>
+        {isLoading && <Loader />}
+        {!isLoading && this.renderCategories()}
+      </Layout>
+    )
+  }
+  renderCategories () {
+    const categories = this.props.data.categories
+    return (
+      <div>
+        {categories.edges.map(category => (
+          <CategoryView
+            key={category.node.id}
+            id={category.node.id}
+            name={category.node.name}
+            posts={category.node.posts}
+          />
+        ))}
+      </div>
+    )
   }
 }
 
-const mapStateToProps = state => ({
-  posts: state.getPosts
-})
-
-export default connect(mapStateToProps)(Category)
+export default graphql(getCategories)(Category)
