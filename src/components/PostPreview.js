@@ -2,53 +2,100 @@ import React from 'react'
 import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card'
 import Button from 'material-ui/Button'
 import Typography from 'material-ui/Typography'
-import { withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import Divider from 'material-ui/Divider'
 import { withStyles } from 'material-ui/styles'
+import { blue, grey } from 'material-ui/colors'
+
+import Attachements from './Attachments'
 
 const styles = {
   card: {
     marginBottom: 15
   },
+  titleColor: {
+    color: blue[800]
+  },
+  dateColor: {
+    color: grey[500]
+  },
+  categoryColor: {
+    color: '#ffb41f'
+  },
   media: {
-    height: 500
+    height: 250
+  },
+  link: {
+    color: 'inherit',
+    textDecoration: 'none'
   }
 }
 
-class PostPreview extends React.Component {
-  constructor () {
-    super()
-    this.renderCard = this.renderCard.bind(this)
-    this.transitionToPost = this.transitionToPost.bind(this)
-  }
-  render () {
-    return <div>{this.renderCard()}</div>
-  }
+const CardImage = ({ mediaStyle, imageURL, id }) => {
+  if (!imageURL) return ''
 
-  renderCard () {
-    const classes = this.props.classes
-    const date = new Date(this.props.date).toLocaleDateString()
-    return (
-      <Card className={classes.card}>
-        <CardMedia className={classes.media} image={this.props.imageURL} />
-        <CardContent>
-          <Typography type='headline' component='h2'>
-            {this.props.title}
-          </Typography>
-          <Typography type='subheading' component='h3'>
-            {date}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button dense color='primary' onClick={this.transitionToPost}>
-            Read More
-          </Button>
-        </CardActions>
-      </Card>
-    )
-  }
-  transitionToPost () {
-    this.props.history.push(`/post/${this.props.id}`)
-  }
+  return (
+    <Link to={`/post/${id}`}>
+      <CardMedia className={mediaStyle} image={imageURL} />
+    </Link>
+  )
 }
 
-export default withStyles(styles)(withRouter(PostPreview))
+const PostPreview = ({
+  classes,
+  title,
+  imageURL,
+  date,
+  id,
+  style,
+  category,
+  content
+}) => {
+  const postDate = new Date(date).toLocaleDateString()
+  return (
+    <Card className={classes.card} style={style}>
+      <CardImage mediaStyle={classes.media} imageURL={imageURL} id={id} />
+      <CardContent>
+        <Typography type="caption" className={classes.categoryColor}>
+          {category.toUpperCase()}
+        </Typography>
+        <Typography
+          type="headline"
+          className={classes.titleColor}
+          component="h2"
+        >
+          <Link className={classes.link} to={`/post/${id}`}>
+            {title}
+          </Link>
+        </Typography>
+        <Typography
+          className={classes.dateColor}
+          type="subheading"
+          component="h3"
+        >
+          {postDate}
+        </Typography>
+        <Typography
+          type="body2"
+          gutterBottom
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
+        {/*
+        TODO:
+         - Add logic to test if there are attachments  
+        */}
+        <Attachements
+        // pass the attachments as props here
+        />
+      </CardContent>
+      <Divider />
+      <CardActions>
+        <Button href={`/post/${id}`} dense color="primary">
+          Read More
+        </Button>
+      </CardActions>
+    </Card>
+  )
+}
+
+export default withStyles(styles)(PostPreview)

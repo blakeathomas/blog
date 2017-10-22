@@ -7,9 +7,31 @@ export const postFragment = gql`
         id
         title
         date
+        slug
+        content
+        categories {
+          edges {
+            node {
+              id
+              name
+            }
+          }
+        }
         featuredImage {
           sourceUrl
         }
+      }
+    }
+  }
+`
+
+export const categoriesFragment = gql`
+  fragment CategoryData on categoriesConnection {
+    edges {
+      node {
+        id
+        name
+        slug
       }
     }
   }

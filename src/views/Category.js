@@ -1,41 +1,41 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { graphql } from 'react-apollo'
-import { getCategories } from '../graphql/queries/categories'
+import { getPostsByCat, getAllPosts } from '../graphql/queries/posts'
 import Loader from '../components/Loader'
-import Layout from '../components/Layout'
-import CategoryView from '../components/CategoryView'
-// import { Link } from 'react-router-dom'
-// import '../styles/app.css'
+import Layout from '../components/Layout/index'
+import { Helmet } from 'react-helmet'
 
-class Category extends Component {
-  constructor () {
-    super()
-    this.renderCategories = this.renderCategories.bind(this)
-  }
-  render () {
-    const isLoading = this.props.data.loading
-    return (
-      <Layout>
-        {isLoading && <Loader />}
-        {!isLoading && this.renderCategories()}
-      </Layout>
-    )
-  }
-  renderCategories () {
-    const categories = this.props.data.categories
-    return (
-      <div>
-        {categories.edges.map(category => (
-          <CategoryView
-            key={category.node.id}
-            id={category.node.id}
-            name={category.node.name}
-            posts={category.node.posts}
-          />
-        ))}
-      </div>
-    )
-  }
+import GridRenderer from '../components/GridTypes/GridRenderer'
+import Error from '../components/Error'
+
+const Category = ({ data, viewtype }) => RenderLayout(data, viewtype)
+const AllPosts = ({ data, viewtype }) => RenderLayout(data, viewtype)
+
+const RenderLayout = (data, viewtype) => {
+  const isLoading = !data.posts
+  return (
+    <Layout>
+      {!data.error && isLoading && <Loader />}
+      {data.error && <Error error={data.error.message} />}
+      {!isLoading && <RenderCategories data={data} viewtype={viewtype} />}
+    </Layout>
+  )
 }
 
-export default graphql(getCategories)(Category)
+const RenderCategories = ({ data, viewtype }) => {
+  const posts = data.posts
+  return (
+    <div>
+      <Helmet>
+        <title>Posts By Categories | Blake Thomas Web Dev blog</title>
+      </Helmet>
+      <GridRenderer posts={posts} viewtype={viewtype} />
+    </div>
+  )
+}
+
+export default graphql(getPostsByCat, {
+  options: ({ match }) => ({ variables: { slug: match.params.slug } })
+})(Category)
+
+export const allPosts = graphql(getAllPosts)(AllPosts)
