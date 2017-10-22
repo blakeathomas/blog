@@ -30,7 +30,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "prettier 'src/**/*.js' 'src/components/**/*.js' '*.js' --write --config .prettierrc && eslint --fix 'src/**/*.js' 'src/components/**/*.js'",
-  
+    "precommit": "lint-staged"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.1",
