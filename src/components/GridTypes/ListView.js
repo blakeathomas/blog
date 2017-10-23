@@ -4,9 +4,10 @@ import PostPreview from '../PostPreview'
 
 const ListView = ({ posts }) => (
   <Grid container justify="center">
-    <Grid item xs={6} sm={4} md={4}>
+   
       {posts &&
         posts.edges.map(post => (
+          <Grid item xs={6} sm={6} md={6} lg={6}>
           <PostPreview
             key={post.node.id}
             id={post.node.id}
@@ -18,8 +19,8 @@ const ListView = ({ posts }) => (
             category={post.node.categories.edges[0].node.name}
             content={post.node.content}
           />
-        ))}
     </Grid>
+    ))}
   </Grid>
 )
 

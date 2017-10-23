@@ -35,11 +35,7 @@ class SideComponent extends Component {
         <div className={classes.drawerHeader}>
           <ListItem>
             <Link to="/">
-              <img
-                className={classes.image}
-                alt="logo"
-                src="https://rc.franciscan.university/static/media/fus-logo.5e5882da.svg"
-              />
+              <img className={classes.image} alt="logo" src="/image.svg" />
             </Link>
           </ListItem>
           <IconButton
