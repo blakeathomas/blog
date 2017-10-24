@@ -5,7 +5,7 @@ import theme from './fusTheme'
 import TopBar from './appbar'
 import SideBar from './drawer'
 import styles from './styles'
-import AnnouncementForm from './AnnoucementForm'
+
 
 class Layout extends Component {
   state = {
@@ -71,10 +71,6 @@ class Layout extends Component {
             open={this.state.open}
             classes={this.props.classes}
             handleDrawerClose={this.handleDrawerClose}
-            toggleDrawer={this.toggleDrawer}
-          />
-          <AnnouncementForm
-            btnDrawerOpen={this.state.btnDrawerOpen}
             toggleDrawer={this.toggleDrawer}
           />
           <div className={classes.appFrame}>

@@ -40,7 +40,7 @@ const TopBar = ({
             className={classNames(classes.flex, classes.typo)}
             noWrap
           >
-            Bulletin
+            Dev Blog
           </Typography>
           <IconButton color="primary" aria-label="More" />
           <IconButton

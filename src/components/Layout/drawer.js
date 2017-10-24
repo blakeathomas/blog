@@ -28,7 +28,7 @@ const displayCategories = props => {
 }
 
 class SideComponent extends Component {
-  render () {
+  render() {
     const classes = this.props.classes
     const drawer = (
       <div className={classes.drawerInner}>
@@ -52,16 +52,7 @@ class SideComponent extends Component {
         <Divider />
         <Link to="/" className={classes.link}>
           <ListItem button>
-            <ListItemText secondary="Current Bulletin" />
-          </ListItem>
-        </Link>
-        <Divider />
-        <Link to="/" className={classes.link}>
-          <ListItem button>
-            <ListItemIcon>
-              <AlarmClock />
-            </ListItemIcon>
-            <ListItemText inset secondary="Take Action" />
+            <ListItemText secondary="Home" />
           </ListItem>
         </Link>
         <Divider />
