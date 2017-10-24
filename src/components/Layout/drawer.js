@@ -35,7 +35,11 @@ class SideComponent extends Component {
         <div className={classes.drawerHeader}>
           <ListItem>
             <Link to="/">
-              <img className={classes.image} alt="logo" src="/image.svg" />
+              <img
+                className={classes.image}
+                alt="logo"
+                src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE4LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAxNzkuMiAxNzkuMiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTc5LjIgMTc5LjIiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8Zz4KCTxjaXJjbGUgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjM0RBNERDIiBzdHJva2Utd2lkdGg9IjUuNSIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBjeD0iOTAiIGN5PSI5MC45IiByPSI4Ni45Ii8+Cgk8Zz4KCQkKCQkJPHBvbHlsaW5lIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzNEQTREQyIgc3Ryb2tlLXdpZHRoPSI1LjUiIHN0cm9rZS1saW5lY2FwPSJzcXVhcmUiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS1taXRlcmxpbWl0PSI0LjQ4IiBwb2ludHM9IgoJCQkxMTMuNSw3MSAxMzMuOCw5MS4yIDEzMy44LDkxLjIgMTEzLjUsMTExLjQgCQkiLz4KCQkKCQkJPHBvbHlsaW5lIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzNEQTREQyIgc3Ryb2tlLXdpZHRoPSI1LjUiIHN0cm9rZS1saW5lY2FwPSJzcXVhcmUiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS1taXRlcmxpbWl0PSI0LjQ4IiBwb2ludHM9IgoJCQk2Ni40LDcxIDQ2LjIsOTEuMiA0Ni4yLDkxLjIgNjYuNCwxMTEuNCAJCSIvPgoJCTxsaW5lIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzNEQTREQyIgc3Ryb2tlLXdpZHRoPSI1LjUiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgeDE9IjgxLjgiIHkxPSIxMjEuMiIgeDI9Ijk4LjEiIHkyPSI2MC42Ii8+Cgk8L2c+CjwvZz4KPC9zdmc+Cg=="
+              />
             </Link>
           </ListItem>
           <IconButton
