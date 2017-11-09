@@ -6,7 +6,7 @@ const GridView = ({ posts }) => (
   <Grid container>
     {posts &&
       posts.edges.map(post => (
-        <Grid key={post.node.id} item xs={6} sm={4} md={3} lg={12}>
+        <Grid key={post.node.id} item xs={6} sm={6} md={4} lg={3}>
           <PostPreview
             style={{ height: '100%' }}
             id={post.node.id}
