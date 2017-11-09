@@ -2,7 +2,7 @@
   "name": "bulletin-react",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "http://blakeathomas.github.io/blog",
+  "homepage": "https://blakeathomas.github.io/blog",
   "dependencies": {
     "apollo-server-express": "^1.1.6",
     "body-parser": "^1.18.2",
@@ -10,6 +10,7 @@
     "dotenv": "^4.0.0",
     "eslint-plugin-import": "^2.7.0",
     "express": "^4.16.2",
+    "gh-pages": "^1.0.0",
     "graphql": "^0.11.7",
     "graphql-tools": "^2.5.0",
     "html-to-text": "^3.3.0",
@@ -30,7 +31,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "lint": "prettier 'src/**/*.js' 'src/components/**/*.js' '*.js' --write --config .prettierrc && eslint --fix 'src/**/*.js' 'src/components/**/*.js'"
+    "lint": "prettier 'src/**/*.js' 'src/components/**/*.js' '*.js' --write --config .prettierrc && eslint --fix 'src/**/*.js' 'src/components/**/*.js'",
+    "analyze": "source-map-explorer build/static/js/main.*",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.1",
