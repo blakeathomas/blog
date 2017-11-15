@@ -2,10 +2,6 @@
   "name": "bulletin-react",
   "version": "0.1.0",
   "private": true,
-<<<<<<< HEAD
-  "homepage": "https://blakeathomas.github.io/blog",
-=======
->>>>>>> parent of 45615d7... does it work, ghpages
   "dependencies": {
     "apollo-server-express": "^1.1.6",
     "body-parser": "^1.18.2",
