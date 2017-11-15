@@ -8,7 +8,7 @@ import ViewQuiltIcon from 'material-ui-icons/ViewQuilt'
 import ViewStreamIcon from 'material-ui-icons/ViewStream'
 import PrintIcon from 'material-ui-icons/Print'
 import MoreVertIcon from 'material-ui-icons/MoreVert'
-
+import Menu, { MenuItem } from 'material-ui/Menu'
 import classNames from 'classnames'
 
 const TopBar = ({
