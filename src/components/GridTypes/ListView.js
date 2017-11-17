@@ -7,7 +7,7 @@ const ListView = ({ posts }) => (
    
       {posts &&
         posts.edges.map(post => (
-          <Grid item xs={6} sm={6} md={6} lg={6}>
+          <Grid item xs={12} sm={12} md={12} lg={12}>
           <PostPreview
             key={post.node.id}
             id={post.node.id}

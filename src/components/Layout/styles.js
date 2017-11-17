@@ -24,8 +24,8 @@ const styles = theme => ({
   },
   appBar: {
     backgroundColor: '#fff',
-    borderBottom: 'solid 3px #998643',
-    color: '#21412a',
+    borderBottom: 'solid 3px #000000',
+    color: '#163558',
     position: 'fixed',
     [theme.breakpoints.up('md')]: {
       marginLeft: drawerWidth,
